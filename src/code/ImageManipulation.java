@@ -20,7 +20,7 @@ public class ImageManipulation {
         image = new APImage(fP);
 //        image.draw();
 
-        APImage grayscaled = ColByCol_Distort(image, ImageManipulation::reflect);
+        APImage grayscaled = ColByCol_Distort(rotateImage(image), ImageManipulation::easeIn);
         grayscaled.draw();
 
 
@@ -235,8 +235,21 @@ public class ImageManipulation {
      * OUTPUT: the image rotated 90 degrees CLOCKWISE
      *
      *  */
-    public static void rotateImage(String pathToFile) {
+    public static APImage rotateImage(APImage in) {
+        // bro im not doing allat
+        int w = in.getWidth();
+        int h = in.getHeight();
+        APImage img = new APImage(h, w);
+        for (int x = 0; x < w; x++) {
+            for (int y = 0; y < h; y++) {
+                Pixel p = in.getPixel(x, y);
+                int newX = h - 1 - y;
+                int newY = x;
+                img.setPixel(newX, newY, p);
+            }
+        }
 
+        return img;
     }
 
 }
