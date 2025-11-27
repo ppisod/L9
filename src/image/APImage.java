@@ -139,6 +139,12 @@ public class APImage extends JFrame implements Iterable<Pixel>{
         return pixels[y * image.getWidth(this) + x];
     }
 
+    public PixelGetResult safelyGetPixel (int x, int y) {
+        if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight())
+            return new PixelGetResult(false, null);
+        return new PixelGetResult(true, getPixel(x, y));
+    }
+
     /**
      * Resets the pixel at the given (x, y) position but does not redraw it.
      * @param x the column position of the pixel
