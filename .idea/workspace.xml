@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="Filter sweep mode DONE!">
+    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="final challenge DONE!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/ImageManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/ImageManipulation.java" afterDir="false" />
     </list>
@@ -159,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764242631921</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="final challenge DONE!">
+      <option name="closed" value="true" />
+      <created>1764243528752</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764243528752</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +186,7 @@
     <MESSAGE value="Added APImage, ImageFieFilter, ImagePanel, and Pixel classes." />
     <MESSAGE value="Filter, FilterMode, PixelGetResult," />
     <MESSAGE value="Filter sweep mode DONE!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter sweep mode DONE!" />
+    <MESSAGE value="final challenge DONE!" />
+    <option name="LAST_COMMIT_MESSAGE" value="final challenge DONE!" />
   </component>
 </project>

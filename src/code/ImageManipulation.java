@@ -242,6 +242,11 @@ public class ImageManipulation {
         APImage img = new APImage(h, w);
         for (int x = 0; x < w; x++) {
             for (int y = 0; y < h; y++) {
+                // Whole new approach here where instead of manipulating which pixel to get, we're
+                // manipulating where to set it
+                // (00) (01)      (10) (00)
+                // (10) (11) ->   (11) (01)
+                // honestly idk i copied from stackoverflow
                 Pixel p = in.getPixel(x, y);
                 int newX = h - 1 - y;
                 int newY = x;
