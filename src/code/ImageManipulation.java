@@ -249,8 +249,9 @@ public class ImageManipulation {
                 // honestly idk i copied from stackoverflow
                 Pixel p = in.getPixel(x, y);
                 int newX = h - 1 - y;
-                int newY = x;
-                img.setPixel(newX, newY, p);
+                //noinspection SuspiciousNameCombination
+                img.setPixel(newX, x, p);
+                // sus
             }
         }
 
