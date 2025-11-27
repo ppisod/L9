@@ -4,6 +4,8 @@ import image.APImage;
 import image.Pixel;
 import image.PixelGetResult;
 
+import java.util.function.Function;
+
 public class ImageManipulation {
 
 
@@ -18,7 +20,7 @@ public class ImageManipulation {
         image = new APImage(fP);
 //        image.draw();
 
-        APImage grayscaled = edgeDetection(image, 35);
+        APImage grayscaled = ColByCol_Distort(image, ImageManipulation::reflect);
         grayscaled.draw();
 
 
@@ -140,14 +142,91 @@ public class ImageManipulation {
         return img;
     }
 
+    // my idea is to have a transformX and transformY system
+    // where the image can be flipped
+    // or eased
+    // etc
+
+    // Progress, from 0 to 1
+    public static double reflect (double progress) {
+        return 1 - progress;
+    }
+
+    public static double easeIn (double progress) {
+        return progress * progress;  // From 0 to 1
+    }
     /** CHALLENGE Four: Reflect Image
      *
      * INPUT: the complete path file name of the image
      * OUTPUT: the image reflected about the y-axis
      *
      */
-    public static void reflectImage(String pathToFile) {
+    public static APImage PixelByPixel_Distort (APImage in, Function<Double, Double> fn) {
+        int w = in.getWidth();
+        int h = in.getHeight();
+        APImage img = new APImage(w, h);
 
+        // Pixel-by-Pixel distortion
+        for (int i = 0; i < w; i++) {
+            for (int j = 0; j < h; j++) {
+                // we get the current progress
+                int pixelIndex = j * w + i;
+                double currentProgress = (double) pixelIndex / (w * h);
+                // this progress is always from 0 to 1
+                // therefore we can use:
+                double real = fn.apply(currentProgress);
+                // we transform this 0 to 1 value back to the pixel index with:
+                int pixelReference = (int) (real * w * h);
+                if (pixelReference > w * h) {
+                    pixelReference = w * h;
+                }
+                int referenceX = pixelReference % w;
+                int referenceY = pixelReference / w;
+
+                PixelGetResult result = in.safelyGetPixel(referenceX, referenceY);
+                if (!result.has()) continue; // idk
+                img.setPixel(i, j, result.pixel());
+
+            }
+        }
+
+        return img;
+    }
+
+    public static APImage RowByRow_Distort (APImage in, Function<Double, Double> fn) {
+        int w = in.getWidth();
+        int h = in.getHeight();
+        APImage img = new APImage(w, h);
+        for (int j = 0; j < h; j++) {
+            for (int i = 0; i < w; i++) {
+                double currentJProgress = (double) j / h;
+                double distortedJProgress = fn.apply(currentJProgress);
+                int processedJ = (int) (distortedJProgress * h);
+                if (processedJ > h) processedJ = h;
+                PixelGetResult result = in.safelyGetPixel(i, processedJ);
+                if (!result.has()) continue;
+                img.setPixel(i, j, result.pixel());
+            }
+        }
+        return img;
+    }
+
+    public static APImage ColByCol_Distort (APImage in, Function<Double, Double> fn) {
+        int w = in.getWidth();
+        int h = in.getHeight();
+        APImage img = new APImage(w, h);
+        for (int i = 0; i < w; i++) {
+            for (int j = 0; j < h; j++) {
+                double currentIProgress = (double) i / w;
+                double distortedIProgress = fn.apply(currentIProgress);
+                int processedI = (int) (distortedIProgress * w);
+                if (processedI > w) processedI = w;
+                PixelGetResult result = in.safelyGetPixel(processedI, j);
+                if (!result.has()) continue;
+                img.setPixel(i, j, result.pixel());
+            }
+        }
+        return img;
     }
 
     /** CHALLENGE Five: Rotate Image

@@ -154,6 +154,14 @@ public class APImage extends JFrame implements Iterable<Pixel>{
     public void setPixel(int x, int y, Pixel p){
         pixels[y * image.getWidth(this) + x] = p;
     }
+
+    public void safelySetPixel (int x, int y, Pixel p) {
+        if (x < 0 || y < 0 || x >= getWidth() || y >= getHeight()) {
+            System.out.println("Tried to invalidly set pixel! Is there something wrong with the filter?");
+            return;
+        }
+        setPixel(x, y, p);
+    }
    
     /**
      * Displays the image in its window.
