@@ -21,6 +21,8 @@ public class ImageManipulation {
         // all filters
         easeIn easeInDistortion = new easeIn();
         sineWaveColors sW = new sineWaveColors();
+        sW.Factor = 20;
+        sW.MaxRGB = 6;
 
         APImage processed;
         processed = easeInDistortion.derived(sW.derived(image));

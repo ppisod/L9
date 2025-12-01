@@ -15,6 +15,6 @@ public class sineWaveColors extends Filter {
         double rv = (double) r / MaxRGB;
         double gv = (double) g / MaxRGB;
         double bv = (double) b / MaxRGB;
-        return new Pixel((int)(Math.cos(rv)*Factor) + r, (int)(Math.sin(gv)*Factor) + g, (int)(Math.cos(bv)*Factor) + b);
+        return new Pixel((int)(Math.tan(rv)*Factor) + r, (int)(Math.sin(gv)*Factor) + g, (int)(Math.tan(bv)*Factor) + b);
     }
 }

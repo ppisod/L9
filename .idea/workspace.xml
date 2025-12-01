@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="final challenge DONE!">
-      <change afterPath="$PROJECT_DIR$/src/code/Distortion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/distortions/easeIn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/distortions/reflectHoriz.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/distortions/reflectVert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filters/blackAndWhite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filters/sineWaveColors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/filters/blur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/ImageManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/ImageManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filters/sineWaveColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/sineWaveColors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764243528752</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="final challenge DONE!">
+      <option name="closed" value="true" />
+      <created>1764564195284</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764564195285</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
