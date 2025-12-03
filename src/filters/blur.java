@@ -26,10 +26,10 @@ public class blur extends Filter {
         int r = tR / totalPixels;
         int g = tG / totalPixels;
         int b = tB / totalPixels;
-        for (int i = 0; i < in.length; i++) {
-            if (in[i] == null) continue;
-            pixels[i] = new Pixel(r, g, b);
-        }
+
+        int row = ((sweepDistance*2)+1);
+        int middle = (((sweepDistance*2)+1)/2);
+        pixels[middle + (row * middle)] = new Pixel(r, g, b);
 
         return pixels;
     }

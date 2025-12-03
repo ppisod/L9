@@ -1,12 +1,11 @@
 package code;
 
-import distortions.easeIn;
+import distortions.*;
+import filters.blur;
 import filters.sineWaveColors;
 import image.APImage;
 import image.Pixel;
 import image.PixelGetResult;
-
-import java.util.function.Function;
 
 public class ImageManipulation {
 
@@ -15,19 +14,19 @@ public class ImageManipulation {
 
     public static void main(String[] args) {
 
-        String fP = "/Users/jackl/IdeaProjects/L9/cyberpunk2077.jpg";
+        String fP = "/Users/jackl/IdeaProjects/L9/vro.jpeg";
         image = new APImage(fP);
 
         // all filters
-        easeIn easeInDistortion = new easeIn();
-        sineWaveColors sW = new sineWaveColors();
-        sW.Factor = 20;
-        sW.MaxRGB = 6;
+        sigmoid Sigmoid = new sigmoid();
+        scale Scale = new scale();
+        Scale.factorX = 3;
+        Scale.factorY = 3;
 
         APImage processed;
-        processed = easeInDistortion.derived(sW.derived(image));
-        processed.draw();
 
+        processed = Sigmoid.derived(Scale.derived(image));
+        processed.draw();
 
     }
 
@@ -65,7 +64,6 @@ public class ImageManipulation {
     }
 
     public static APImage rotateImage(APImage in) {
-        // bro im not doing allat
         int w = in.getWidth();
         int h = in.getHeight();
         APImage img = new APImage(h, w);
