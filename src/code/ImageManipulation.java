@@ -17,15 +17,17 @@ public class ImageManipulation {
         String fP = "/Users/jackl/IdeaProjects/L9/vro.jpeg";
         image = new APImage(fP);
 
-        // all filters
         sigmoid Sigmoid = new sigmoid();
         scale Scale = new scale();
         Scale.factorX = 3;
         Scale.factorY = 3;
 
+        logaspiral LogarithmicSpiral = new logaspiral();
+        LogarithmicSpiral.applyC = true;
+
         APImage processed;
 
-        processed = Sigmoid.derived(Scale.derived(image));
+        processed = LogarithmicSpiral.derived(Scale.derived(image));
         processed.draw();
 
     }
