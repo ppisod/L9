@@ -2,6 +2,8 @@ package code;
 
 import distortions.*;
 import filters.blur;
+import filters.brighten;
+import filters.divisibleSharpener;
 import filters.sineWaveColors;
 import image.APImage;
 import image.Pixel;
@@ -17,6 +19,8 @@ public class ImageManipulation {
         String fP = "/Users/jackl/IdeaProjects/L9/vro.jpeg";
         image = new APImage(fP);
 
+        Distortion noDist = new Distortion();
+
         sigmoid Sigmoid = new sigmoid();
         scale Scale = new scale();
         Scale.factorX = 3;
@@ -24,10 +28,28 @@ public class ImageManipulation {
 
         logaspiral LogarithmicSpiral = new logaspiral();
         LogarithmicSpiral.applyC = true;
+        LogarithmicSpiral.applyR = true;
+
+        randomWalk RandomWalk = new randomWalk();
+        RandomWalk.applyC = true;
+        RandomWalk.applyR = true;
+
+        binaryCounting BinaryCounting = new binaryCounting();
+        BinaryCounting.applyC = true;
+        BinaryCounting.k = 2;
+
+        divisibleSharpener sharpener = new divisibleSharpener();
+        sharpener.applyX = true;
+        sharpener.factor = 2;
+        sharpener.divisibleAt = 5;
+        sharpener.giveOrTake = 1;
+
+        brighten Brighten = new brighten();
+        Brighten.factor = 2;
 
         APImage processed;
 
-        processed = LogarithmicSpiral.derived(Scale.derived(image));
+        processed = Brighten.derived(Scale.derived(image));
         processed.draw();
 
     }
