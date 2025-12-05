@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="brighten">
-      <change afterPath="$PROJECT_DIR$/flight reacts.jpeg" afterDir="false" />
+    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="new">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/Distortion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Distortion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/ImageManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/ImageManipulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distortions/logisticMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distortions/logisticMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distortions/randomWalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distortions/randomWalk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/distortions/sigmoid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/distortions/sigmoid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filters/blackAndWhite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/blackAndWhite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filters/brighten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/brighten.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/filters/divisibleSharpener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/divisibleSharpener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filters/sineWaveColors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/sineWaveColors.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,26 +49,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ImageManipulation.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-19&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jackl/IdeaProjects/L9&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ImageManipulation.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "openjdk-19",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/jackl/IdeaProjects/L9",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -227,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764743198854</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="new">
+      <option name="closed" value="true" />
+      <created>1764900643671</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764900643671</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,6 +250,7 @@
     <MESSAGE value="implemented a lot more distortions" />
     <MESSAGE value="logarithmic spiral" />
     <MESSAGE value="brighten" />
-    <option name="LAST_COMMIT_MESSAGE" value="brighten" />
+    <MESSAGE value="new" />
+    <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
 </project>

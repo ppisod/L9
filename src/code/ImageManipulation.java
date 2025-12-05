@@ -58,7 +58,8 @@ public class ImageManipulation {
 
         divisibleSharpener sharpener = new divisibleSharpener();
         sharpener.applySineBoomY = true;
-        sharpener.sineBoomFactor = 100000;
+        sharpener.applyMult = true;
+        sharpener.sineBoomFactor = 50;
         sharpener.factor = 2;
         sharpener.divisibleAt = 5;
         sharpener.giveOrTake = 1;

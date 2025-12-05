@@ -16,6 +16,7 @@ public class divisibleSharpener extends Filter {
     public boolean applySineBoomX = false;
     public boolean applySineBoomY = false;
     public int sineBoomFactor = 100;
+    public int sineBoomD = 1;
 
     public int factor = 10;
     public boolean sane = true;
@@ -25,21 +26,22 @@ public class divisibleSharpener extends Filter {
         // apply a brightness filter if x % divisibleAt < giveOrTake
         boolean toApply = false;
         double applyFactor = 1;
-        if (x % divisibleAt < giveOrTake && applyX) toApply = true;
-        if (y % divisibleAt < giveOrTake && applyY) toApply = true;
-        if ((x + y) % divisibleAt < giveOrTake && applyCombined) toApply = true;
-        if ((x * y) % divisibleAt < giveOrTake && applyMult) toApply = true;
-        if (x > 0 && y > 0 && (x / y) % divisibleAt < giveOrTake && applyDiv) toApply = true;
 
         if (applySineBoomX) {
             toApply = true;
-            applyFactor = ((Math.sin((double) x / w) * sineBoomFactor) % divisibleAt) / divisibleAt;
+            applyFactor += (((Math.sin((double) x / w) * sineBoomFactor) % divisibleAt) / divisibleAt) * sineBoomD;
         }
 
         if (applySineBoomY) {
             toApply = true;
-            applyFactor = ((Math.sin((double) y / h) * sineBoomFactor) % divisibleAt) / divisibleAt;
+            applyFactor += (((Math.sin((double) y / h) * sineBoomFactor) % divisibleAt) / divisibleAt) * sineBoomD;
         }
+
+        if (x % divisibleAt < giveOrTake && applyX) toApply = true; applyFactor += 1;
+        if (y % divisibleAt < giveOrTake && applyY) toApply = true; applyFactor += 1;
+        if ((x + y) % divisibleAt < giveOrTake && applyCombined) toApply = true; applyFactor += 1;
+        if ((x * y) % divisibleAt < giveOrTake && applyMult) toApply = true; applyFactor += 1;
+        if (x > 0 && y > 0 && (x / y) % divisibleAt < giveOrTake && applyDiv) toApply = true; applyFactor += 1;
 
         if (!toApply) return in;
         int nr = (int) (in.getRed() + ((in.getRed() * factor) - in.getRed()) * applyFactor);
