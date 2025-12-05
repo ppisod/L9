@@ -8,7 +8,7 @@ public class sineWaveColors extends Filter {
     public int MaxRGB = 255;
 
     @Override
-    public Pixel applyFilterPixel(Pixel in, int x, int y) {
+    public Pixel applyFilterPixel(Pixel in, int x, int y, int w, int h) {
         int r = in.getRed();
         int g = in.getGreen();
         int b = in.getBlue();

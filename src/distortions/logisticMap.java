@@ -5,7 +5,6 @@ import code.Distortion;
 public class logisticMap extends Distortion {
 
     public static double logMap (double t) {
-        // Based on logistic map chaos
         double r = 3.7f;
         double x = t;
         for (int i = 0; i < 10; i++) {

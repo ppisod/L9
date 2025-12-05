@@ -16,15 +16,32 @@ public class ImageManipulation {
 
     public static void main(String[] args) {
 
+        // PRESETS
+//        divisibleSharpener sharpener = new divisibleSharpener();
+//        sharpener.applySineBoomY = true;
+//        sharpener.sineBoomFactor = 100000;
+//        sharpener.factor = 2;
+//        sharpener.divisibleAt = 5;
+//        sharpener.giveOrTake = 1;
+//        sharpener.sane = false;
+
         String fP = "/Users/jackl/IdeaProjects/L9/vro.jpeg";
         image = new APImage(fP);
 
         Distortion noDist = new Distortion();
 
         sigmoid Sigmoid = new sigmoid();
+
         scale Scale = new scale();
         Scale.factorX = 3;
         Scale.factorY = 3;
+
+        scale afterScale = new scale();
+        afterScale.factorX = 2;
+        afterScale.factorY = 2;
+
+        bounce bounc = new bounce();
+        bounc.pixOn = false;
 
         logaspiral LogarithmicSpiral = new logaspiral();
         LogarithmicSpiral.applyC = true;
@@ -33,23 +50,31 @@ public class ImageManipulation {
         randomWalk RandomWalk = new randomWalk();
         RandomWalk.applyC = true;
         RandomWalk.applyR = true;
+        RandomWalk.s = 22;
 
         binaryCounting BinaryCounting = new binaryCounting();
         BinaryCounting.applyC = true;
         BinaryCounting.k = 2;
 
         divisibleSharpener sharpener = new divisibleSharpener();
-        sharpener.applyX = true;
+        sharpener.applySineBoomY = true;
+        sharpener.sineBoomFactor = 100000;
         sharpener.factor = 2;
         sharpener.divisibleAt = 5;
         sharpener.giveOrTake = 1;
+        sharpener.sane = false;
+
+        sineWaveColors k = new sineWaveColors();
+        k.MaxRGB = 2555;
+        k.Factor = 2000;
 
         brighten Brighten = new brighten();
         Brighten.factor = 2;
+        Brighten.sane = true;
 
         APImage processed;
 
-        processed = Brighten.derived(Scale.derived(image));
+        processed = afterScale.derived(sharpener.derived(Scale.derived(image)));
         processed.draw();
 
     }
@@ -93,16 +118,10 @@ public class ImageManipulation {
         APImage img = new APImage(h, w);
         for (int x = 0; x < w; x++) {
             for (int y = 0; y < h; y++) {
-                // Whole new approach here where instead of manipulating which pixel to get, we're
-                // manipulating where to set it
-                // (00) (01)      (10) (00)
-                // (10) (11) ->   (11) (01)
-                // honestly idk i copied from stackoverflow
                 Pixel p = in.getPixel(x, y);
                 int newX = h - 1 - y;
                 //noinspection SuspiciousNameCombination
                 img.setPixel(newX, x, p);
-                // sus
             }
         }
 

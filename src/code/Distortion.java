@@ -25,7 +25,7 @@ public class Distortion {
 
         for (int i = 0; i < w; i++) {
             for (int j = 0; j < h; j++) {
-                // Use (w-1) so 0..w-1 maps exactly to 0..1
+                // 0 to 1
                 double denomW = Math.max(1, w - 1);
                 double currentIProgress = i / denomW;
                 double distortedIProgress = fnCol(currentIProgress);

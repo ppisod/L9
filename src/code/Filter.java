@@ -22,7 +22,7 @@ public class Filter {
             // we apply the filter to every pixel
             for (int i = 0; i < w; i++) {
                 for (int j = 0; j < h; j++) {
-                    filtered.setPixel(i, j, applyFilterPixel(in.getPixel(i, j), i, j));
+                    filtered.setPixel(i, j, applyFilterPixel(in.getPixel(i, j), i, j, w, h));
                 }
             }
         } else if (mode == FilterMode.Sweep) {
@@ -100,7 +100,7 @@ public class Filter {
 
     }
 
-    public Pixel applyFilterPixel (Pixel in, int x, int y) {
+    public Pixel applyFilterPixel (Pixel in, int x, int y, int w, int h) {
         return in;
     }
 

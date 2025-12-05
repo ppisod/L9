@@ -6,10 +6,10 @@ public class randomWalk extends Distortion {
 
     public boolean applyC = false;
     public boolean applyR = false;
+    public int s = 20;
 
-    public static double deterministicRandomWalk(double t) {
-        // Uses pseudo-random but deterministic noise
-        int samples = 20;
+    public double deterministicRandomWalk(double t) {
+        int samples = s;
         float sum = 0;
         for (int i = 0; i < samples; i++) {
             float freq = (float) Math.pow(2, i);

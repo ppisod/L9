@@ -8,7 +8,7 @@ public class brighten extends Filter {
     public int factor = 1;
 
     @Override
-    public Pixel applyFilterPixel(Pixel in, int x, int y) {
+    public Pixel applyFilterPixel(Pixel in, int x, int y, int w, int h) {
         int r = in.getRed();
         int g = in.getGreen();
         int b = in.getBlue();
