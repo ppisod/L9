@@ -50,7 +50,7 @@ import java.util.*;
  * allows up to 128 megabytes of heap space for the TestGrayscale program.
 */
 
-public class APImage extends JFrame implements Iterable<Pixel>{
+public class APImage extends JFrame implements Iterable<Pixel> {
    
     // Default width and height of blank images
     static private final int WIDTH = 200;

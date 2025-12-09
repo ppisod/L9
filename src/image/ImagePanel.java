@@ -9,7 +9,7 @@ import javax.swing.*;
  * 
  * This class implements a panel for displaying an image.
  */
-public class ImagePanel extends JPanel{
+public class ImagePanel extends JPanel {
 
     private Image image;
 

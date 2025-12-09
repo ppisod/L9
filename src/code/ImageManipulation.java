@@ -1,10 +1,7 @@
 package code;
 
 import distortions.*;
-import filters.blur;
-import filters.brighten;
-import filters.divisibleSharpener;
-import filters.sineWaveColors;
+import filters.*;
 import image.APImage;
 import image.Pixel;
 import image.PixelGetResult;
@@ -66,7 +63,7 @@ public class ImageManipulation {
         sharpener.sane = false;
 
         sineWaveColors k = new sineWaveColors();
-        k.MaxRGB = 2555;
+        k.MaxRGB = 2033;
         k.Factor = 2000;
 
         brighten Brighten = new brighten();
@@ -75,7 +72,10 @@ public class ImageManipulation {
 
         APImage processed;
 
-        processed = afterScale.derived(sharpener.derived(Scale.derived(image)));
+        add addFilter = new add();
+        addFilter.mode = BlendMode.Average;
+
+        processed = addFilter.derived(edgeDetection(Scale.derived(image), 20), Scale.derived(image));
         processed.draw();
 
     }
