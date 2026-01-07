@@ -22,7 +22,7 @@ public class ImageManipulation {
 //        sharpener.giveOrTake = 1;
 //        sharpener.sane = false;
 
-        String fP = "/Users/jackl/IdeaProjects/L9/vro.jpeg";
+        String fP = "/Users/jackl/IdeaProjects/L9/traffic.jpeg";
         image = new APImage(fP);
 
         scale Scale = new scale();
@@ -34,7 +34,7 @@ public class ImageManipulation {
 
         blackAndWhite bl = new blackAndWhite();
 
-        astigmatism stigmaFilter = new astigmatism(215, 125, 0.05, 4, 36, 1, 1, 5);
+        astigmatism stigmaFilter = new astigmatism(225.0, 125, 0.015, 4, 36, 1, 1, 10, 5, 2.5f);
 
         divisibleSharpener sharpener = new divisibleSharpener();
         sharpener.applySineBoomY = true;
@@ -48,9 +48,14 @@ public class ImageManipulation {
         brightnessmap bmap = new brightnessmap();
         bmap.thr = 180;
 
-        APImage processed;
-        processed = Scale.derived(stigmaFilter.derived(image));
-        processed.draw();
+        APImage original = Scale.derived(image);
+
+        APImage processed = Scale.derived(stigmaFilter.derived(image));
+
+        mix Mix = new mix(processed, 0.7F);
+
+        original = Mix.derived(original);
+        original.draw();
 
     }
 

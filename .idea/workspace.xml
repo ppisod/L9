@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="finishing up">
-      <change afterPath="$PROJECT_DIR$/biggestgr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filters/astigmatism.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filters/brightnessmap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/filters/kawaseblur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utility/V.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="65557ac9-effe-4032-98d9-b67ae953d01e" name="Changes" comment="ASTIGMATISM">
+      <change afterPath="$PROJECT_DIR$/src/filters/mix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traffic.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/ImageManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/ImageManipulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filters/blackAndWhite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/blackAndWhite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/filters/divisibleSharpener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/divisibleSharpener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filters/astigmatism.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/astigmatism.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765245044186</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="ASTIGMATISM">
+      <option name="closed" value="true" />
+      <created>1767789101403</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1767789101403</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -283,6 +286,7 @@
     <MESSAGE value="brighten" />
     <MESSAGE value="new" />
     <MESSAGE value="finishing up" />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing up" />
+    <MESSAGE value="ASTIGMATISM" />
+    <option name="LAST_COMMIT_MESSAGE" value="ASTIGMATISM" />
   </component>
 </project>

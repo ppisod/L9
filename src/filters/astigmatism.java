@@ -34,11 +34,13 @@ public class astigmatism extends Filter {
     public int bluriterations;
     public int outBlurIterations;
     public float randoAngleOffsetRange;
+    public float beamContrast;
+    public float CREF;
 
     private Random random;
 
 
-    public astigmatism (double thres, int beamL, double beamO, int beams, double angleOffset, int blur, int outblur, float randomAngleOffsetRange) {
+    public astigmatism (double thres, int beamL, double beamO, int beams, double angleOffset, int blur, int outblur, float randomAngleOffsetRange, float beamContrast, float channelRatioExceedFactor) {
         threshold = thres;
         beamLength = beamL;
         beamOpacity = beamO;
@@ -47,13 +49,25 @@ public class astigmatism extends Filter {
         bluriterations = blur;
         outBlurIterations = outblur;
         randoAngleOffsetRange = randomAngleOffsetRange;
+        CREF = channelRatioExceedFactor;
+
+        this.beamContrast = beamContrast;
 
         random = new Random();
 
     }
 
-    private double value (Pixel p) {
-        return (p.getRed() + p.getGreen() + p.getBlue()) / 3f;
+    private boolean value (Pixel p) {
+        int r = p.getRed();
+        int g = p.getGreen();
+        int b = p.getBlue();
+
+        float avg = (r+g+b) / 3f;
+        float r_v = (float) r/((float)(g+b)/2);
+        float g_v = (float) g/((float)(r+b)/2);
+        float b_v = (float) b/((float)(r+g)/2);
+
+        return r_v > CREF || g_v > CREF || b_v > CREF || avg > threshold;
     }
 
     private void clamp (Pixel p) {
@@ -78,10 +92,10 @@ public class astigmatism extends Filter {
             for (int y = 0; y < h; y++) {
 
                 Pixel pixel = in.getPixel(x, y);
-                double value = value(pixel);
+                boolean value = value(pixel);
 
                 Pixel toSet = null;
-                if (value > threshold) {
+                if (value) {
 //                    V current = new V (x, y);
                     XYPair curPos = new XYPair(x, y);
 
@@ -110,10 +124,19 @@ public class astigmatism extends Filter {
 
                             double op = 1 - ((double) i / beamLength);
 
+                            int r = pixel.getRed();
+                            int g = pixel.getGreen();
+                            int b = pixel.getBlue();
+
+                            r = (int)(((((r / 255.0) - 0.5) * beamContrast) + 0.5) * 255.0);
+                            g = (int)(((((g / 255.0) - 0.5) * beamContrast) + 0.5) * 255.0);
+                            b = (int)(((((b / 255.0) - 0.5) * beamContrast) + 0.5) * 255.0);
+
+
                             Pixel p = out.getPixel(q.x, q.y);
-                            p.setGreen((int) (p.getGreen() + (pixel.getGreen() * op * beamOpacity)));
-                            p.setRed((int) (p.getRed() + (pixel.getRed() * op * beamOpacity)));
-                            p.setBlue((int) (p.getBlue() + (pixel.getBlue() * op * beamOpacity)));
+                            p.setGreen((int) (p.getGreen() + (g * op * beamOpacity)));
+                            p.setRed((int) (p.getRed() + (r * op * beamOpacity)));
+                            p.setBlue((int) (p.getBlue() + (b * op * beamOpacity)));
                             clamp(p);
                             out.setPixel(q.x, q.y, p);
 
