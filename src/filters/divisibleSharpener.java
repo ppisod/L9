@@ -37,11 +37,23 @@ public class divisibleSharpener extends Filter {
             applyFactor += (((Math.sin((double) y / h) * sineBoomFactor) % divisibleAt) / divisibleAt) * sineBoomD;
         }
 
-        if (x % divisibleAt < giveOrTake && applyX) toApply = true; applyFactor += 1;
-        if (y % divisibleAt < giveOrTake && applyY) toApply = true; applyFactor += 1;
-        if ((x + y) % divisibleAt < giveOrTake && applyCombined) toApply = true; applyFactor += 1;
-        if ((x * y) % divisibleAt < giveOrTake && applyMult) toApply = true; applyFactor += 1;
-        if (x > 0 && y > 0 && (x / y) % divisibleAt < giveOrTake && applyDiv) toApply = true; applyFactor += 1;
+        if (x % divisibleAt < giveOrTake && applyX) {toApply = true; applyFactor += 1;}
+        if (y % divisibleAt < giveOrTake && applyY) {
+            toApply = true;
+            applyFactor += 1;
+        }
+        if ((x + y) % divisibleAt < giveOrTake && applyCombined) {
+            toApply = true;
+            applyFactor += 1;
+        }
+        if ((x * y) % divisibleAt < giveOrTake && applyMult) {
+            toApply = true;
+            applyFactor += 1;
+        }
+        if (x > 0 && y > 0 && (x / y) % divisibleAt < giveOrTake && applyDiv) {
+            toApply = true;
+            applyFactor += 1;
+        }
 
         if (!toApply) return in;
         int nr = (int) (in.getRed() + ((in.getRed() * factor) - in.getRed()) * applyFactor);
