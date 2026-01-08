@@ -22,7 +22,7 @@ public class ImageManipulation {
 //        sharpener.giveOrTake = 1;
 //        sharpener.sane = false;
 
-        String fP = "/Users/jackl/IdeaProjects/L9/traffic.jpeg";
+        String fP = "/Users/jackl/IdeaProjects/L9/cyberpunk2077.jpg";
         image = new APImage(fP);
 
         scale Scale = new scale();
@@ -34,7 +34,7 @@ public class ImageManipulation {
 
         blackAndWhite bl = new blackAndWhite();
 
-        astigmatism stigmaFilter = new astigmatism(225.0, 125, 0.015, 4, 36, 1, 1, 10, 5, 2.5f);
+        astigmatism stigmaFilter = new astigmatism(200.0, 60, 0.015, 6, 36, 1, 2, 60, 5, 6f);
 
         divisibleSharpener sharpener = new divisibleSharpener();
         sharpener.applySineBoomY = true;
@@ -50,13 +50,12 @@ public class ImageManipulation {
 
         APImage original = Scale.derived(image);
 
-        APImage processed = Scale.derived(stigmaFilter.derived(image));
+        APImage processed = image;
 
-        mix Mix = new mix(processed, 0.7F);
-
-        original = Mix.derived(original);
-        original.draw();
-
+//        mix Mix = new mix(processed, 0.7F);
+//
+//        original = Mix.derived(original);
+        processed.draw();
     }
 
 }

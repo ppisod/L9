@@ -11,20 +11,9 @@ import java.util.Random;
 public class astigmatism extends Filter {
 
     // this can be split into another file
-    public static class XYPair {
-        public int x;
-        public int y;
-        public XYPair (int xx, int yy) {
-            x = xx; y = yy;
-        }
-    }
+    public static class XYPair { public int x; public int y; public XYPair (int xx, int yy) { x = xx; y = yy; } }
 
-    public static float nextFloatInRangePrecise(float min, float max, Random bro) {
-        if (min >= max) {
-            throw new IllegalArgumentException("max must be greater than min");
-        }
-        return (float) (min + (max - min) * bro.nextDouble());
-    }
+    public static float nextFloatInRangePrecise(float min, float max, Random bro) {if (min >= max) throw new IllegalArgumentException("max must be greater than min"); return (float) (min + (max - min) * bro.nextDouble());}
 
     public double threshold; // 0-255
     public int beamLength;
@@ -50,11 +39,8 @@ public class astigmatism extends Filter {
         outBlurIterations = outblur;
         randoAngleOffsetRange = randomAngleOffsetRange;
         CREF = channelRatioExceedFactor;
-
         this.beamContrast = beamContrast;
-
         random = new Random();
-
     }
 
     private boolean value (Pixel p) {
